@@ -1319,3 +1319,22 @@ INSERT INTO `t_user_role` VALUES ('20', '17', '5');
 INSERT INTO `t_user_role` VALUES ('21', '19', '8');
 INSERT INTO `t_user_role` VALUES ('22', '21', '6');
 INSERT INTO `t_user_role` VALUES ('23', '21', '5');
+
+
+-- ----------------------------
+-- Table structure for `t_setting`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_setting`;
+CREATE TABLE `t_setting` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_default_role` bigint(20) DEFAULT NULL,
+  `user_perm_control` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_default_role` (`user_default_role`),
+  CONSTRAINT `user_default_role` FOREIGN KEY (`user_default_role`) REFERENCES `t_role` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_setting
+-- ----------------------------
+INSERT INTO `t_setting` VALUES ('1', '5', 'no');
